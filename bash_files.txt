@@ -1,0 +1,49 @@
+# Add Visual StudiYeo Code (code)/
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+# Add Visual Studio Code (code)
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+# Add Visual Studio Code (code)
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+#Shortcuts
+alias c="clear"
+alias mkcd='f(){mkdir "$1" && cd "$1" && echo successfully made and entered "$1"; unset -f f}; f'
+alias l='f(){"$1" *"$2"*; unset -f f}; f'
+alias view='f(){python ~/bash_files/view.py -d "${1:=1}" -f "${2:=0}" -fl "${3:=0}" -c "${4:=0}"; unset -f f; }; f'
+# alias rmDS="python ~/bash_files/removeDsFiles.py"
+alias rmDS="g++ -std=c++17 ~/bash_files/removeDsFiles.cpp && ./a.out && rm a.out"
+alias search='f(){python ~/bash_files/search.py "$1" -l "${2=0}" -o "${3=0}"; unset -f f; }; f'
+
+# For cd
+alias class='f(){cd /Users/ghazshahbaz/documents/schoolwork/"$1"/"$2"; unset -f f; }; f'
+alias cs335="cd /Users/ghazshahbaz/documents/schoolwork/comp_sci/cs335"
+alias cs235="cd /Users/ghazshahbaz/documents/schoolwork/comp_sci/cs235"
+alias cs135="cd /Users/ghazshahbaz/documents/schoolwork/comp_sci/cs135"
+alias school="cd /Users/ghazshahbaz/documents/schoolwork"
+alias projects="cd /Users/ghazshahbaz/documents/projects"
+alias other="cd /Users/ghazshahbaz/documents/other"
+alias docs="cd /Users/ghazshahbaz/documents"
+alias bash_files="cd /Users/ghazshahbaz/bash_files"
+alias ctext="cd /Users/ghazshahbaz/documents/other/codingText"
+
+
+# bash
+alias bashRefresh="source ~/.bash_profile"
+alias bashProf="vi ~/.bash_profile"
+alias bashRc="vi ~/.bashrc"
+
+# To compile with c++
+alias g++f="g++ -std=c++11"
+alias g++11='f(){g++ -std=c++11 "$1".cpp -o "$1" && ./"$1"; unset -f f; }; f'
+alias g++13='f(){g++ -std=c++13 "$1".cpp -o "$1" && ./"$1"; unset -f f; }; f'
+alias g++17='f(){g++ -std=c++17 "$1".cpp -o "$1" && ./"$1"; unset -f f; }; f'
+alias g++20='f(){g++ -std=c++20 "$1".cpp -o "$1" && ./"$1"; unset -f f; }; f'
+alias g++s='f(){g++ -std=c++"${2:=11}"  -fsanitize=address -fno-elide-constructors "$1".cpp -o "$1" && ./"$1"; unset -f f; }; f'
+# Compiling python
+
+alias py='f(){python "$1"; unset -f f; }; f'
+
+
+# Git
+alias ginit='f(){git init && git commit -m "Bash First Commit" && git branch -M main && git remote add origin git@github.com:GhazanfarShahbaz/"$1".git && git push -u origin main; unset -f f; }; f'
+alias gcommit='f(){git add . && git commit -a -m "$1" && git push; unset -f f; }; f'
