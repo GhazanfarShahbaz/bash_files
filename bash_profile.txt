@@ -1,0 +1,50 @@
+# Add Visual StudiYeo Code (code)/
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+# Add Visual Studio Code (code)
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+# Add Visual Studio Code (code)
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+
+alias eniac="ssh 'Ghazanfar.Shahbaz95@eniac.cs.hunter.cuny.edu'"
+
+#Shortcuts
+alias c="clear"
+alias mkcd='f(){mkdir "$1" && cd "$1" && echo successfully made and entered "$1"; unset -f f}; f'
+alias l='f(){"$1" *"$2"*; unset -f f}; f'
+
+# Python Bash Files
+alias view='f(){python ~/bash_files/view.py -d "${1:=1}" -f "${2:=0}" -fl "${3:=0}" -c "${4:=0}"; unset -f f; }; f'
+alias rmDS="python3 ~/bash_files/removeDsFiles.py"
+alias search='f(){python3 ~/bash_files/search.py "$1" -l "${2:=0}" -o "${3:=0}" -a "${4:=open}"; unset -f f; }; f'
+
+alias class='f(){cd /Users/ghazshahbaz/documents/schoolwork/"$1"/"${2:=}" && echo $(pwd) && tree -L 2 --sort=name -C; unset -f f; }; f'
+alias cs='f(){cd /Users/ghazshahbaz/documents/schoolwork/comp_sci/cs"$1"/"${2:=}" && echo $(pwd) && tree -L 2 --sort=name -C; unset -f f; }; f'
+alias projects="cd /Users/ghazshahbaz/documents/projects && echo $(pwd) && tree -L 2 --sort=name -C"
+alias other="cd /Users/ghazshahbaz/documents/other && echo $(pwd) && tree -L 2 --sort=name -C"
+alias docs="cd /Users/ghazshahbaz/documents && echo $(pwd) && tree -L 2 --sort=name -C"
+alias bash_files="cd /Users/ghazshahbaz/bash_files && echo $(pwd) && tree -L 2 --sort=name -C"
+alias ctext="cd /Users/ghazshahbaz/documents/other/codingText && echo $(pwd) && ls && tree -L 2 --sort=name -C "
+
+
+# Bash Aliases
+alias bashR="source ~/.bash_profile"
+alias bashP="code ~/.bash_profile"
+alias bashRc="code ~/.bashrc"
+alias bashCopy="cat ~/.bash_profile | pbcopy && rm ~/bash_files/bash_profile.txt && pbpaste > bash_profile.txt"
+
+# C++ aliases
+alias g++f='f(){g++ -std=c++11; unset -f f; }; f'
+alias g++='f(){g++ -std=c++"${2:=11}" "$1".cpp -o "$1" && ./"$1" && rm "$1"; unset -f f; }; f'
+alias g++s='f(){g++ -std=c++"${2:=11}"  -fsanitize=address -fno-elide-constructors "$1".cpp -o "$1" && ./"$1" && rm ./"$1"; unset -f f; }; f'
+
+# Python aliases
+alias py='f(){python"${2:=3}" "$1".py; unset -f f; }; f'
+alias python=python3
+alias pip=pip3
+alias virtualEnv="python3 -m venv env && source env/bin/activate"
+
+# Git Aliases
+alias ginit='f(){git init && git commit -m "Bash First Commit" && git branch -M main && git remote add origin git@github.com:GhazanfarShahbaz/"$1".git && git push -u origin main; unset -f f; }; f'
+alias gcommit='f(){git add . && git commit -a -m "$1" && git push; unset -f f; }; f'
+

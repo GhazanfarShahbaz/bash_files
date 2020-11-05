@@ -46,10 +46,10 @@ if __name__ == "__main__":
             else:
                 config.add(x)
 
-    printSets("Documents", documents, "\t")
+    printSets("Config FIles", config, '\t')
     print()
 
-    printSets("Config FIles", config, '\t')
+    printSets("Documents", documents, "\t")
     print()
 
     if folders:

@@ -10,8 +10,8 @@ parser.add_argument("value", help="File or folder to search for", type=str)
 
 #Optional Agruments
 parser.add_argument("-l", "--limit", help="Limit the number of matching results", type=int)
-parser.add_argument("-o", "--open",help="If this is greater than one then matching value will be open" type=int)
-parser.add_argument("-a", "--action",help="Set a customized action in case if there are results" type=str)
+parser.add_argument("-o", "--open",help="If this is greater than one then matching value will be open", type=int)
+parser.add_argument("-a", "--action",help="Set a customized action in case if there are results", type=str)
 
 args = parser.parse_args()
 
