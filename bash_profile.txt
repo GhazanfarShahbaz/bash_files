@@ -12,10 +12,11 @@ alias eniac="ssh 'Ghazanfar.Shahbaz95@eniac.cs.hunter.cuny.edu'"
 alias c="clear"
 alias mkcd='f(){mkdir "$1" && cd "$1" && echo successfully made and entered "$1"; unset -f f}; f'
 alias l='f(){"$1" *"$2"*; unset -f f}; f'
+alias mvDL="mv ~/Downloads/* ."
 
 # Python Bash Files
 alias view='f(){python ~/bash_files/view.py -d "${1:=1}" -f "${2:=0}" -fl "${3:=0}" -c "${4:=0}"; unset -f f; }; f'
-alias rmDS="python3 ~/bash_files/removeDsFiles.py"
+alias rmDS="g++ ~/bash_files/removeDsFiles.cpp && ./a.out && rm a.out"
 alias search='f(){python3 ~/bash_files/search.py "$1" -l "${2:=0}" -o "${3:=0}" -a "${4:=open}"; unset -f f; }; f'
 
 alias class='f(){cd /Users/ghazshahbaz/documents/schoolwork/"$1"/"${2:=}" && echo $(pwd) && tree -L 2 --sort=name -C; unset -f f; }; f'
@@ -26,22 +27,24 @@ alias docs="cd /Users/ghazshahbaz/documents && echo $(pwd) && tree -L 2 --sort=n
 alias bash_files="cd /Users/ghazshahbaz/bash_files && echo $(pwd) && tree -L 2 --sort=name -C"
 alias ctext="cd /Users/ghazshahbaz/documents/other/codingText && echo $(pwd) && ls && tree -L 2 --sort=name -C "
 
+alias mkDoc='f(){touch "$1" && open "$1"; unset -f f; }; f'
+
 
 # Bash Aliases
 alias bashR="source ~/.bash_profile"
 alias bashP="code ~/.bash_profile"
 alias bashRc="code ~/.bashrc"
+alias zshrc="code ~/.zshrc"
+alias zProf="code ~./zprofile"
 alias bashCopy="cat ~/.bash_profile | pbcopy && rm ~/bash_files/bash_profile.txt && pbpaste > bash_profile.txt"
 
 # C++ aliases
-alias g++f='f(){g++ -std=c++11; unset -f f; }; f'
-alias g++='f(){g++ -std=c++"${2:=11}" "$1".cpp -o "$1" && ./"$1" && rm "$1"; unset -f f; }; f'
-alias g++s='f(){g++ -std=c++"${2:=11}"  -fsanitize=address -fno-elide-constructors "$1".cpp -o "$1" && ./"$1" && rm ./"$1"; unset -f f; }; f'
+alias g++t='f(){g++ -std=c++"${2:=11}" "$1".cpp -o "$1"}; f'
+alias g++f='f(){g++ -std=c++"${2:=11}" "$1".cpp -o "$1" && ./"$1" && rm "$1"; unset -f f; }; f'
+alias g++s='f(){g++ -std=c++"${2:=11}" -fsanitize=address -fno-elide-constructors "$1".cpp -o "$1" && ./"$1" && rm ./"$1"; unset -f f; }; f'
 
 # Python aliases
 alias py='f(){python"${2:=3}" "$1".py; unset -f f; }; f'
-alias python=python3
-alias pip=pip3
 alias virtualEnv="python3 -m venv env && source env/bin/activate"
 
 # Git Aliases

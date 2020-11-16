@@ -1,0 +1,16 @@
+!#/usr/local/bin
+
+clear
+
+check="Y"
+filepath=`pwd`
+
+for file in ~/downloads/*
+do 
+    echo "Move $file to current directory? Y or N"
+    read action
+    if [ "$action" == 'y' ]
+    then
+        mv "$file" "$filepath"
+    fi 
+done
