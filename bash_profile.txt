@@ -13,6 +13,7 @@ alias c="clear"
 alias mkcd='f(){mkdir "$1" && cd "$1" && echo successfully made and entered "$1"; unset -f f}; f'
 alias l='f(){"$1" *"$2"*; unset -f f}; f'
 alias mvDl="~/bash_files/moveFromDownloads"
+alias countLines="python3 ~/bash_files/countLines.py"
 
 # Python Bash Files
 alias view='f(){python ~/bash_files/view.py -d "${1:=1}" -f "${2:=0}" -fl "${3:=0}" -c "${4:=0}"; unset -f f; }; f'
