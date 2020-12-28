@@ -24,6 +24,22 @@ formats = {
 }
 
 
+excludePaths = {
+    "/Users/ghazshahbaz/OneDrive - Hunter - CUNY",
+    "/Users/ghazshahbaz/Applications",
+    "/Users/ghazshahbaz/Agent",
+    "/Users/ghazshahbaz/Desktop",			
+    "/Users/ghazshahbaz/Library",				
+    "/Users/ghazshahbaz/Movies",		
+    "/Users/ghazshahbaz/Music",
+    "/Users/ghazshahbaz/Pictures",
+    "/Users/ghazshahbaz/Public",
+    "/Users/ghazshahbaz/eniac",
+    "/Users/ghazshahbaz/eniac.pub",
+    "/Users/ghazshahbaz/VirtualBox VMs",
+    "/Users/ghazshahbaz/login"
+}
+
 def countLines(filePath: str, countType: str) -> None:
     try:
         File = open(filePath, "r")
@@ -40,13 +56,18 @@ def countLines(filePath: str, countType: str) -> None:
 
 
 def traverse(path: str) -> None:
-    for x in os.listdir(path):
-        if os.path.isdir(f"{path}/{x}"):
-            traverse(f"{path}/{x}")
-        else:
-            endType = x[x.rfind(".")+1:]
-            if endType in formats.keys():
-                countLines(f"{path}/{x}", formats[endType])
+    try:
+        for x in os.listdir(path):
+            thisPath = f"{path}/{x}"
+            if x[0] != ".":
+                if os.path.isdir(thisPath) and not thisPath in excludePaths:
+                    traverse(thisPath)
+                else:
+                    endType = x[x.rfind(".")+1:]
+                    if endType in formats.keys():
+                        countLines(thisPath, formats[endType])
+    except:
+        pass
 
 
 if __name__ == "__main__":
