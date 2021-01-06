@@ -23,7 +23,6 @@ formats = {
     "text": "Text File"
 }
 
-
 excludePaths = {
     "/Users/ghazshahbaz/OneDrive - Hunter - CUNY",
     "/Users/ghazshahbaz/Applications",
@@ -58,8 +57,8 @@ def countLines(filePath: str, countType: str) -> None:
 def traverse(path: str) -> None:
     try:
         for x in os.listdir(path):
-            thisPath = f"{path}/{x}"
             if x[0] != ".":
+                thisPath = f"{path}/{x}"
                 if os.path.isdir(thisPath) and not thisPath in excludePaths:
                     traverse(thisPath)
                 else:

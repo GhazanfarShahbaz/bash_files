@@ -1,8 +1,6 @@
 # Add Visual StudiYeo Code (code)/
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 # Add Visual Studio Code (code)
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-# Add Visual Studio Code (code)
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 
@@ -38,7 +36,7 @@ alias bashP="code ~/.bash_profile"
 alias bashRc="code ~/.bashrc"
 alias zshrc="code ~/.zshrc"
 alias zProf="code ~/.zprofile"
-alias bashCopy="cat ~/.bash_profile | pbcopy && rm ~/bash_files/bash_profile.txt && pbpaste > bash_profile.txt"
+alias bashCopy='f(){bash ~/bash_files/profileCopy "${1:=bash_profile}" -C; unset -f f; }; f'
 alias lsalias="grep -in --color -e '^alias\s+*' ~/.bash_profile | sed 's/alias //' | grep --color -e ':[a-z][a-z0-9]*'"
 
 
