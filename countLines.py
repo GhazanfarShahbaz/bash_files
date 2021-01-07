@@ -3,6 +3,8 @@ import os
 differentCounts = {
     "Assembly": 0,
     "C++": 0,
+    "CSS": 0,
+    "HTML": 0,
     "Java": 0,
     "JavaScript": 0,
     "Python": 0,
@@ -15,6 +17,8 @@ formats = {
     "cpp": "C++",
     "hpp": "C++",
     "h": "C++",
+    "html": "HTML",
+    "css": "CSS",
     "java": "Java",
     "js": "JavaScript",
     "rb": "Ruby",
@@ -39,6 +43,7 @@ excludePaths = {
     "/Users/ghazshahbaz/login"
 }
 
+
 def countLines(filePath: str, countType: str) -> None:
     try:
         File = open(filePath, "r")
@@ -57,7 +62,7 @@ def countLines(filePath: str, countType: str) -> None:
 def traverse(path: str) -> None:
     try:
         for x in os.listdir(path):
-            if x[0] != ".":
+            if x[0] != "." and x != "env":
                 thisPath = f"{path}/{x}"
                 if os.path.isdir(thisPath) and not thisPath in excludePaths:
                     traverse(thisPath)
