@@ -2,7 +2,7 @@
 #include <filesystem>
 #include <string>
 
-namespace fs = std::filesystem;
+namespace fs = std::__fs::filesystem;
 using namespace std;
 
 void traverse(fs::path path){
