@@ -12,6 +12,8 @@ alias mkcd='f(){mkdir "$1" && cd "$1" && echo successfully made and entered "$1"
 alias l='f(){"$1" *"$2"*; unset -f f}; f'
 alias mvDl="~/bash_files/moveFromDownloads"
 alias countLines="python3 ~/bash_files/countLines.py"
+alias definition="python3 /Users/ghazshahbaz/documents/schoolwork/definition_gui/definition_gui.py"
+alias sortDefinitions="python3 /Users/ghazshahbaz/documents/schoolwork/definition_gui/sortDefinitionFile.py"
 
 # Python Bash Files
 alias view='f(){python ~/bash_files/view.py -d "${1:=1}" -f "${2:=0}" -fl "${3:=0}" -c "${4:=0}"; unset -f f; }; f'
@@ -36,7 +38,7 @@ alias bashP="code ~/.bash_profile"
 alias bashRc="code ~/.bashrc"
 alias zshrc="code ~/.zshrc"
 alias zProf="code ~/.zprofile"
-alias bashCopy='f(){bash ~/bash_files/profileCopy "${1:=bash_profile}" -C; unset -f f; }; f'
+alias bashCopy='f(){bash ~/bash_files/profileCopy "${fileName:=bash_profile}" -C; unset -f f; }; f'
 alias lsalias="grep -in --color -e '^alias\s+*' ~/.bash_profile | sed 's/alias //' | grep --color -e ':[a-z][a-z0-9]*'"
 
 
@@ -48,13 +50,16 @@ alias g++s='f(){g++ -std=c++"${2:=17}" -fsanitize=address -fno-elide-constructor
 # Python aliases
 alias py='f(){python"${2:=3}" "$1".py; unset -f f; }; f'
 alias pipUninstall='pip3 freeze > dump.txt && cat dump.txt | xargs sudo pip3 uninstall -y && rm dump.txt'
-alias venv="python3 -m venv env && source env/bin/activate"
+alias install='python3 -m pip install'
+alias venv="python3 -m venv env && source env/bin/activate && pip install --upgrade pip"
 alias activate="source env/bin/activate"
+alias requirements="pip install -r requirements.txt"
+alias saveRequirements="pip freeze >> requirements.txt"
 
 # Assembly
 alias asmcompile='f(){nasm -f macho64 "$1".asm && ld -macosx_version_min 10.7.0 -o "$1" "$1".o; unset -f f; }; f'
 # Git Aliases
 alias ginit='f(){git init && git commit -m "Bash First Commit" && git branch -M main && git remote add origin git@github.com:GhazanfarShahbaz/"$1".git && git push -u origin main; unset -f f; }; f'
-alias gcommit='f(){git add . && git commit -a -m "$1" && git push; unset -f f; }; f'
+alias gcommit='f(){rmDS && git add . && git commit -a -m "$1" && git push; unset -f f; }; f'
 
 alias close='f(){killAll "${1:=Terminal}"; unset -f f; }; f'

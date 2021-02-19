@@ -1,7 +1,6 @@
-!#/usr/local/bin
-clear
+#! /bin/bash
 
 fileName="$1"
 echo $fileName
 
-#cat ~/."$fileName" | pbcopy && rm -f !/bash_files/"$fileName".txt && pbpaste > ~/bash_files/"$fileName".txt
+cat ~/."$fileName" | pbcopy && rm -f !/bash_files/"$fileName".txt && pbpaste > ~/bash_files/"$fileName".txt
