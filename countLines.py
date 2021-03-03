@@ -9,6 +9,7 @@ differentCounts = {
     "JavaScript": 0,
     "Python": 0,
     "Ruby": 0,
+    "Tex": 0,
     "Text File": 0
 }
 
@@ -23,6 +24,7 @@ formats = {
     "js": "JavaScript",
     "rb": "Ruby",
     "asm": "Assembly",
+    "tex": "Tex",
     "txt": "Text File",
     "text": "Text File"
 }
