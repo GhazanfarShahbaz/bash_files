@@ -27,7 +27,7 @@ void traverse(fs::path path,  std::unordered_set<std::string> uselessExtensions,
 
 int main(){
     std::unordered_set<std::string> uselessFiles = {".DS_Store", "a.out"};
-    std::unordered_set<std::string>  uselessExtensions = {"aux", "ldb_matexmk", "fls", "log", "synctex.gz"};
+    std::unordered_set<std::string>  uselessExtensions = {"aux", "ldb_matexmk", "fls", "log", "synctex.gz", "fdb_latexmk"};
 
     traverse(fs::current_path(), uselessExtensions ,uselessFiles);
 }
