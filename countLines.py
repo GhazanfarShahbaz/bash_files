@@ -83,6 +83,9 @@ if __name__ == "__main__":
     traverse(os.getcwd())
     for x, y in differentCounts.items():
         if x != "Total Lines":
-            print(f"{cs(x + ' Counts', 'DodgerBlue').bold()}: {y} -> {cs(str(int((y/differentCounts['Total Lines'])*10000)/100), 'grey').bold()}%")
+            currentString = f"{cs(x + ' Counts', 'DodgerBlue').bold()}: {y}"
+            while len(currentString) < 50:
+                currentString += " "
+            print(currentString, f"\t\t{cs(str(int((y/differentCounts['Total Lines'])*10000)/100), 'grey').bold()}%")
         else:
             print(f"{cs(x, 'DodgerBlue').bold()}: {y}")

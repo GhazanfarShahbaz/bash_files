@@ -12,11 +12,16 @@ bool extension(std::string fileName, std::unordered_set<std::string> uselessExte
     
 }
 
-void traverse(fs::path path,  std::unordered_set<std::string> uselessExtensions,  std::unordered_set<std::string> uselessFiles ){
+void traverse(fs::path path,  std::unordered_set<std::string> uselessExtensions,  std::unordered_set<std::string> uselessFiles, std::unordered_set<std::string> uselessFolders ){
     for (const auto & entry : fs::directory_iterator(path)){
         fs::path current= entry;
         if(fs::is_directory(current)){
-            traverse(current, uselessExtensions ,uselessFiles);
+            if(uselessFolders.count(current.filename())){
+                fs::remove_all(string(path) + "/" + string(current.filename()));
+            }
+            else{
+                traverse(current, uselessExtensions ,uselessFiles, uselessFolders);
+            }
         }
         else if(uselessFiles.count(current.filename()) or extension(current.filename(), uselessExtensions)){
             fs::remove(string(path) + "/" + string(current.filename()));
@@ -28,7 +33,8 @@ void traverse(fs::path path,  std::unordered_set<std::string> uselessExtensions,
 int main(){
     std::unordered_set<std::string> uselessFiles = {".DS_Store", "a.out"};
     std::unordered_set<std::string>  uselessExtensions = {"aux", "ldb_matexmk", "fls", "log", "synctex.gz", "fdb_latexmk"};
+    std::unordered_set<std::string> uselessFolders = {"__pycache__"};
 
-    traverse(fs::current_path(), uselessExtensions ,uselessFiles);
+    traverse(fs::current_path(), uselessExtensions ,uselessFiles, uselessFolders);
 }
 
