@@ -1,4 +1,5 @@
 import os 
+from stringcolor import * 
 
 differentCounts = {
     "Assembly": 0,
@@ -7,10 +8,11 @@ differentCounts = {
     "HTML": 0,
     "Java": 0,
     "JavaScript": 0,
+    "Latex": 0,
     "Python": 0,
     "Ruby": 0,
-    "Tex": 0,
-    "Text File": 0
+    "Text File": 0,
+    "Total Lines": 0
 }
 
 formats = {
@@ -24,7 +26,7 @@ formats = {
     "js": "JavaScript",
     "rb": "Ruby",
     "asm": "Assembly",
-    "tex": "Tex",
+    "tex": "Latex",
     "txt": "Text File",
     "text": "Text File"
 }
@@ -55,6 +57,7 @@ def countLines(filePath: str, countType: str) -> None:
             if line != "":
                 count += 1
         differentCounts[countType] += count
+        differentCounts["Total Lines"] += count
 
         File.close()
     except UnicodeDecodeError:
@@ -66,7 +69,7 @@ def traverse(path: str) -> None:
         for x in os.listdir(path):
             if x[0] != "." and x != "env":
                 thisPath = f"{path}/{x}"
-                if os.path.isdir(thisPath) and not thisPath in excludePaths:
+                if os.path.isdir(thisPath) and not thisPath in excludePaths and x != "node_modules":
                     traverse(thisPath)
                 else:
                     endType = x[x.rfind(".")+1:]
@@ -79,4 +82,7 @@ def traverse(path: str) -> None:
 if __name__ == "__main__":
     traverse(os.getcwd())
     for x, y in differentCounts.items():
-        print(f"{x} Counts: {y}")
+        if x != "Total Lines":
+            print(f"{cs(x + ' Counts', 'DodgerBlue').bold()}: {y} -> {cs(str(int((y/differentCounts['Total Lines'])*10000)/100), 'grey').bold()}%")
+        else:
+            print(f"{cs(x, 'DodgerBlue').bold()}: {y}")
