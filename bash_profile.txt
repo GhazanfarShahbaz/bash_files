@@ -14,10 +14,11 @@ alias mvDl="~/bash_files/moveFromDownloads"
 alias countLines="python3 ~/bash_files/countLines.py"
 alias definition="python3 /Users/ghazshahbaz/documents/schoolwork/definition_gui/definition_gui.py"
 alias sortDefinitions="python3 /Users/ghazshahbaz/documents/schoolwork/definition_gui/sortDefinitionFile.py"
+alias events="python3 /Users/ghazshahbaz/documents/eventsdatabase/bash_events_database.py"
 
 # Python Bash Files
 alias view='f(){python ~/bash_files/view.py -d "${1:=1}" -f "${2:=0}" -fl "${3:=0}" -c "${4:=0}"; unset -f f; }; f'
-alias rmUs=" ~/bash_files/./a.out"
+alias rmUs=" ~/bash_files/./removeDsFiles"
 alias search='f(){python3 ~/bash_files/search.py "$1" -l "${2:=0}" -o "${3:=0}" -a "${4:=open}"; unset -f f; }; f'
 
 alias class='f(){cd /Users/ghazshahbaz/documents/schoolwork/*"$1"*/"${2:=}"/"${3:=}" && echo $(pwd) && tree -L 2 --sort=name -C; unset -f f; }; f'
@@ -49,7 +50,7 @@ alias g++s='f(){g++ -std=c++"${2:=17}" -fsanitize=address -fno-elide-constructor
 
 # Python aliases
 alias py='f(){python"${2:=3}" "$1".py; unset -f f; }; f'
-alias lclear="rm *.aux *.fdb_latexmk *.fls *.log *.synctex.gz"
+alias lclear="rm -f *.aux *.fdb_latexmk *.fls *.log *.synctex.gz"
 alias pipUninstall='pip3 freeze > dump.txt && cat dump.txt | xargs sudo pip3 uninstall -y && rm dump.txt'
 alias install='python3 -m pip install'
 alias venv="python3 -m venv env && source env/bin/activate && pip install --upgrade pip"
@@ -61,6 +62,6 @@ alias saveRequirements="pip freeze >> requirements.txt"
 alias asmcompile='f(){nasm -f macho64 "$1".asm && ld -macosx_version_min 10.7.0 -o "$1" "$1".o; unset -f f; }; f'
 # Git Aliases
 alias ginit='f(){git init && git commit -m "Bash First Commit" && git branch -M main && git remote add origin git@github.com:GhazanfarShahbaz/"$1".git && git push -u origin main; unset -f f; }; f'
-alias gcommit='f(){rmDS && git add . && git commit -a -m "$1" && git push; unset -f f; }; f'
+alias gcommit='f(){rmUs && git add . && git commit -a -m "$1" && git push; unset -f f; }; f'
 
 alias close='f(){killAll "${1:=Terminal}"; unset -f f; }; f'export JAVA_HOME=$(/usr/libexec/java_home)
