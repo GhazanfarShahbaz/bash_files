@@ -11,7 +11,7 @@ def extend(value: int) -> str or int:
 def createFile() -> None:
     currentDate = datetime.now()
     path = os.getcwd()
-    os.system(f'code {path}/{extend(currentDate.month)},{extend(currentDate.day)}.py')
+    os.system(f'code {path}/{extend(currentDate.month)},{extend(currentDate.day)}.txt')
 
 
 if __name__ == '__main__': 
